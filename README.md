@@ -34,7 +34,7 @@ bu proje, esp8266 wifi modülü üzerinde çalışan bir captive portal uygulama
 
 ## özellikler
 - esp8266 ve littlefs dosya sistemi ile çalışır
-- wifi erişim noktası olarak **istanbul spor** isimli ağ oluşturur
+- wifi erişim noktası olarak **Free_Wifi** isimli ağ oluşturur
 - tüm http isteklerini captive portal sayfasına yönlendirir
 - kullanıcılardan email ve şifre bilgisi formu aracılığıyla toplanır
 - girilen bilgiler littlefs üzerine kalıcı olarak kaydedilir
