@@ -2091,7 +2091,7 @@ local function R6FakeCharacter()------------------------------------------------
     cTorso.Neck.Part1 = reanimation.Head
     
     reanimation.Humanoid.DisplayDistanceType = "None"
-    reanimation.Humanoid.Health = 0
+    reanimation.Humanoid.Health = reanimation.Humanoid.MaxHealth
     
     cHRP.RootJoint.Part0 = cHRP
     cHRP.RootJoint.Part1 = cTorso
@@ -2879,4 +2879,5 @@ BotReanimation.MouseButton1Click:Connect(function()
         Bot()
     end
 end)
+
 ---------------
