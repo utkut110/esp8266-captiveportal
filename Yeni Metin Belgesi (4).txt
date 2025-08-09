@@ -1003,7 +1003,7 @@ local function ServerAdmin()
     	if Damage > 0 then
     		Damage = Damage * DAMAGEMULTIPLIER
     		if Humanoid.Health < 2000 then
-    			if Humanoid.Health - Damage > 0 then
+    			if Humanoid.Health - Damage > 100 then
     				Humanoid.Health = Humanoid.Health - Damage
     			else
     				Humanoid.Parent:BreakJoints()
@@ -1421,7 +1421,7 @@ local function ServerAdmin()
         		if TARGET.Parent:FindFirstChildOfClass("Humanoid") then
         			local HUM = TARGET.Parent:FindFirstChildOfClass("Humanoid")
         			local ROOT = HUM.Parent:FindFirstChild("Torso") or HUM.Parent:FindFirstChild("UpperTorso") --HUM.Parent:FindFirstChild("HumanoidRootPart") or 
-        			if ROOT then -- and HUM.Health > 0
+        			if ROOT then -- and HUM.Health > 100
         				local FOE = ROOT.Parent
         				ATTACK = true
         				Rooted = false
@@ -1703,8 +1703,8 @@ local function ServerAdmin()
         		end
         	end
         	unanchor()
-        	Humanoid.MaxHealth = 1e3
-        	Humanoid.Health = 1e3
+        	Humanoid.MaxHealth = 100
+        	Humanoid.Health = 100
         	if Rooted == false then
         		Disable_Jump = false
         		Humanoid.WalkSpeed = Speed
@@ -2881,3 +2881,4 @@ BotReanimation.MouseButton1Click:Connect(function()
 end)
 
 ---------------
+
