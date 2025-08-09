@@ -1003,14 +1003,11 @@ local function ServerAdmin()
     	if Damage > 0 then
     		Damage = Damage * DAMAGEMULTIPLIER
     		if Humanoid.Health < 2000 then
-    			if Humanoid.Health - Damage > 100 then
-    				Humanoid.Health = Humanoid.Health - Damage
-    			else
-    				Humanoid.Parent:BreakJoints()
-    			end
-    		else
-    			Humanoid.Parent:BreakJoints()
-    		end
+    -- Hasar ver ama can değişmesin, yani hiç dokunma
+    -- Yani buraya bir şey yazmana gerek yok
+else
+    Humanoid.Parent:BreakJoints()
+end
     	end
     end
     
@@ -1703,8 +1700,8 @@ local function ServerAdmin()
         		end
         	end
         	unanchor()
-        	Humanoid.MaxHealth = 100
-        	Humanoid.Health = 100
+        	Humanoid.MaxHealth = 1e3
+        	Humanoid.Health = 1e3
         	if Rooted == false then
         		Disable_Jump = false
         		Humanoid.WalkSpeed = Speed
@@ -2879,6 +2876,4 @@ BotReanimation.MouseButton1Click:Connect(function()
         Bot()
     end
 end)
-
 ---------------
-
