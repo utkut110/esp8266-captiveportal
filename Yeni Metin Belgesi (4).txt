@@ -249,7 +249,7 @@ local function ServerAdmin()
     --Reanimated
     reanimated = true
     
-    if permaDeath == true and character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+    if permaDeath == false and character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
         torso = character.Torso
     end
         
@@ -1003,11 +1003,14 @@ local function ServerAdmin()
     	if Damage > 0 then
     		Damage = Damage * DAMAGEMULTIPLIER
     		if Humanoid.Health < 2000 then
-    -- Hasar ver ama can değişmesin, yani hiç dokunma
-    -- Yani buraya bir şey yazmana gerek yok
-else
-    Humanoid.Parent:BreakJoints()
-end
+    			if Humanoid.Health - Damage > 0 then
+    				Humanoid.Health = Humanoid.Health - Damage
+    			else
+    				Humanoid.Parent:BreakJoints()
+    			end
+    		else
+    			Humanoid.Parent:BreakJoints()
+    		end
     	end
     end
     
@@ -1418,7 +1421,7 @@ end
         		if TARGET.Parent:FindFirstChildOfClass("Humanoid") then
         			local HUM = TARGET.Parent:FindFirstChildOfClass("Humanoid")
         			local ROOT = HUM.Parent:FindFirstChild("Torso") or HUM.Parent:FindFirstChild("UpperTorso") --HUM.Parent:FindFirstChild("HumanoidRootPart") or 
-        			if ROOT then -- and HUM.Health > 100
+        			if ROOT then -- and HUM.Health > 0
         				local FOE = ROOT.Parent
         				ATTACK = true
         				Rooted = false
@@ -2088,7 +2091,7 @@ local function R6FakeCharacter()------------------------------------------------
     cTorso.Neck.Part1 = reanimation.Head
     
     reanimation.Humanoid.DisplayDistanceType = "None"
-    reanimation.Humanoid.Health = reanimation.Humanoid.MaxHealth
+    reanimation.Humanoid.Health = 0
     
     cHRP.RootJoint.Part0 = cHRP
     cHRP.RootJoint.Part1 = cTorso
@@ -2282,7 +2285,7 @@ local function R15FakeCharacter()
     local reanimation = model
     
     --Cloning Hats (For Netless)
-    if permaDeath == true then
+    if permaDeath == false then
         for i,v in pairs(character:GetChildren()) do
             if v:IsA("Accessory") then
                 local clone = v:Clone()
@@ -2480,7 +2483,7 @@ local function PermaDeath()-----------------------------------------------------
     local hrp = character.HumanoidRootPart
     local camera = workspace.CurrentCamera
     
-    permaDeath = true
+    permaDeath = false
     
     if character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
         R6FakeCharacter()
