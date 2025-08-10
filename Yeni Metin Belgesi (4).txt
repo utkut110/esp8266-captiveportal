@@ -2091,7 +2091,7 @@ local function R6FakeCharacter()------------------------------------------------
     cTorso.Neck.Part1 = reanimation.Head
     
     reanimation.Humanoid.DisplayDistanceType = "None"
-    reanimation.Humanoid.Health = 0
+    -- reanimation.Humanoid.Health = 0
     
     cHRP.RootJoint.Part0 = cHRP
     cHRP.RootJoint.Part1 = cTorso
@@ -2869,9 +2869,9 @@ end)
 
 --Reanimating--
 PermanentReanimation.MouseButton1Click:Connect(function()
-    if permaDeath == false and bot == false then
-        PermaDeath()
-    end
+   -- if permaDeath == false and bot == false then
+      --  PermaDeath()
+    -- end
 end)
 
 BotReanimation.MouseButton1Click:Connect(function()
